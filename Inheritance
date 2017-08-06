@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+class Person{
+protected:
+    string name;
+private:
+    int age;
+public:
+    void setName(string iname){ name = iname;}
+    void setAge(int iage){ age = iage;}
+    Person(){
+        cout << "Person constructor called!" << endl;
+    }
+    ~Person(){
+        cout << "Person deconstructor called!"<< endl;
+    }
+};
+
+
+class Student : public Person{
+protected:
+    int ID;
+public:
+    void setId(int iID) {ID = iID;}
+
+    void introduce (){
+    name = "John"; // derived class has access to protected stuffs from base class
+    //age = 21; // but cannot access private stuffs from base class
+    cout << "Hi, my name is "<< name << " and I'm " << age << endl
+    << "My student ID is " << ID<<endl;
+    }
+    Student(){
+        cout << "Student constructor called!" <<endl; // Person's constructor is called first then Studenss constructor
+    }
+    ~Student(){
+        cout << "Student deconstructor called!" <<endl; // Student's deconstructor is called first then Person's deconstructor
+    }
+};
+int main()
+{
+    Student MK;
+    MK.setName("Ken");
+    MK.setAge(20);
+    MK.setId(3072);
+
+    MK.introduce(); // Johns
+
+    return 0;
+}
+
+
