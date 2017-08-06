@@ -32,10 +32,10 @@ public:
     << "My student ID is " << ID<<endl;
     }
     Student(){
-        cout << "Student constructor called!" <<endl; // Person's constructor is called first then Studenss constructor
+        cout << "Student constructor called!" <<endl; // Person's constructor is executed first then Student's constructor
     }
     ~Student(){
-        cout << "Student deconstructor called!" <<endl; // Student's deconstructor is called first then Person's deconstructor
+        cout << "Student deconstructor called!" <<endl; // Student's deconstructor is executed first then Person's deconstructor
     }
 };
 int main()
@@ -45,7 +45,7 @@ int main()
     MK.setAge(20);
     MK.setId(3072);
 
-    MK.introduce(); // Johns
+    MK.introduce(); // John
 
     return 0;
 }
